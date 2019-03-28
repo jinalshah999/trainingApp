@@ -1,0 +1,24 @@
+<h2>Hello form child</h2>
+
+<h1>{{a}}</h1>
+
+<button [disabled]="flag"
+ (click)="onClick()" >
+ Clik Me
+</button>
+
+<input type="text"
+ [(ngModel)]="str" >
+<h1>{{str}}</h1>
+
+
+<input type="text"
+(keyup)="0" #input1 >
+<h1>{{input1.value}}</h1>
+
+<hr>
+
+<ul>
+  <li *ngFor="let item of arr;let i=index" >{{item}}  at {{i}}  </li>
+</ul>
+

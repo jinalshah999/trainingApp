@@ -1,0 +1,43 @@
+<div class="container" >
+
+  <div class="row">
+    <div class="col-md-3">
+     <app-sidebar (demo)="onDemo($event)" [title]="str" ></app-sidebar>
+    </div>
+    <div class="col-md-9">
+
+
+      <div class="container">
+        <div class="row">
+          <h1>{{date1 | date:'dd-MM-yy' }}</h1>
+          <!-- <br>
+          <h1>{{date1 | date:'fullDate' }}</h1> -->
+          <input type="text" #demo>
+          <button (click)="onClick()" >Click Me</button>
+        </div>
+      <div class="row">
+
+        <input type="number" #pro_id class="form-control" placeholder="Enter product id" >
+        <input type="text" #pro_name class="form-control" placeholder="Enter product name" >
+        <input type="number" #pro_price class="form-control" placeholder="Enter product price" >
+        <input type="number" #pro_soh class="form-control" placeholder="Enter product soh" >
+        <button class="btn btn-primary" (click)="onAddProduct(pro_id.value,pro_name.value,pro_price.value,pro_soh.value)" >Add Product</button>
+      </div>
+
+      <div class="row">
+          <div *ngFor="let item of arrProduct;let i=index" class="card" style="width: 18rem;">
+              <div class="card-body">
+                <h5 class="card-title" [ngClass]="{avilable: item.pro_soh>0,notavilable:item.pro_soh<=0}" >{{item.pro_name | titlecase  }}</h5>
+                <h6 class="card-subtitle mb-2 text-muted">{{item.pro_price | currency:'INR':false }}</h6>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <a href="#" class="card-link">Card link</a>
+                <a (click)="onDelete(item)" class="card-link">Delete</a>
+              </div>
+            </div>
+          </div>
+      </div>
+
+
+    </div>
+  </div>
+</div>

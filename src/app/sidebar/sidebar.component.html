@@ -1,0 +1,5 @@
+<div class="row">
+<h1>{{title}}</h1>
+<input #search (keyup)="onKeyUp(search.value)" type="text">
+<button (click)="onSearch(search.value)" >Search </button>
+</div>

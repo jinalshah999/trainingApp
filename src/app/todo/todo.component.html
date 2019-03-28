@@ -1,0 +1,43 @@
+<div class="container">
+  <div class="row">
+      <div appHighliter [highlightcolor]="'green'" [defaultColor]="'blue'"  >Some Text</div>
+
+      <input type="text" appCreditcard >
+  </div>
+<div class="row">
+<input class="form-control" #id placeholder="enter id" type="text">
+<input class="form-control" #title  placeholder="enter title" type="text">
+<input class="form-control" #status placeholder="enter status" type="text">
+<button class="btn btn-primary" (click)="onAddTask(id.value,title.value,status.value)" >Add Task</button>
+<hr>
+</div>
+<div class="row">
+
+<input type="text" #search (keyup)="0"  class="form-control" placeholder="Search" >
+<table class="table" >
+<thead>
+  <th>ID</th>
+  <th>Title</th>
+  <th>Status</th>
+  <th>Action</th>
+</thead>
+<tbody>
+  <tr *ngFor="let item of arr | filter:search.value " >
+  <td>{{item.id}}</td>
+  <td>{{item.title}}</td>
+  <td> <span
+     [ngClass]="{donestatus: item.status=='done',pendingstatus:item.status=='pending'}" > {{item.status}}</span></td>
+     <td>
+       <button (click)="onDeleteTask(item)" >
+      delete
+      </button>
+      <button (click)="onUpdateTask(item)" >
+          update
+          </button>
+     </td>
+  </tr>
+</tbody>
+
+</table>
+</div>
+</div>
