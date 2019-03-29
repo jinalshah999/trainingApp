@@ -1,0 +1,8 @@
+<ul *ngIf="arr.length>0;else elseBlock">
+  <li *ngFor="let item of arr">{{item.pro_name}}</li>
+</ul>
+<ng-template #elseBlock>
+  <div >
+    <h1>No items in cart</h1>
+  </div>
+</ng-template>

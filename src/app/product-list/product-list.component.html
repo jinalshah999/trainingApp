@@ -1,0 +1,23 @@
+<div class="container">
+
+  <div class=row>
+    <div class="col-md-3">
+      <app-cart></app-cart>
+    </div>
+    <div class="col-md-9">
+
+      <button (click)="onAdd()">Add Product</button>
+      <div *ngFor="let item of products" class="card" style="width: 18rem;">
+        <img src="{{item.pro_image}}" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">{{item.pro_name}}</h5>
+          <p class="card-text">{{item.pro_price}}</p>
+          <a (click)="onClick(item)" class="btn btn-primary">Add to cart</a>
+          <a (click)="onDeleteClick(item)" class="btn btn-primary">Delete</a>
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+</div>

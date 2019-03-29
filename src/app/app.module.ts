@@ -13,6 +13,11 @@ import { DemodirectiveDirective } from './demodirective.directive';
 import { HighliterDirective } from './highliter.directive';
 import { CreditcardDirective } from './creditcard.directive';
 import { SidebarComponent } from './sidebar/sidebar.component';
+import { ProductListComponent } from './product-list/product-list.component';
+import { AddproductComponent } from './product-list/addproduct/addproduct.component';
+import { routingArr } from './app.routing';
+import { CartComponent } from './product-list/cart/cart.component';
+import { MenuComponent } from './menu.component';
 
 @NgModule({
   declarations: [
@@ -26,11 +31,16 @@ import { SidebarComponent } from './sidebar/sidebar.component';
     DemodirectiveDirective,
     HighliterDirective,
     CreditcardDirective,
-    SidebarComponent
+    SidebarComponent,
+    ProductListComponent,
+    AddproductComponent,
+    CartComponent,
+    MenuComponent
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    routingArr
   ],
   providers: [],
   bootstrap: [AppComponent]
