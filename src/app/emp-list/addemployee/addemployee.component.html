@@ -1,0 +1,12 @@
+<div class="container">
+
+  <div class="row">
+
+      <input type="number" class="form-control" #emp_id placeholder="enter employee id" >
+      <input type="text" class="form-control" #emp_name placeholder="enter employee name" >
+      <input type="number" class="form-control" #emp_salary placeholder="enter employee salary" >
+      <input type="text" class="form-control" #emp_desg placeholder="enter employee desg" >
+      <button (click)="onEmpSave(emp_id.value,emp_name.value,emp_salary.value,emp_desg.value)" >Save</button>
+      <button (click)="onCancel()" >Cancel</button>
+  </div>
+</div>

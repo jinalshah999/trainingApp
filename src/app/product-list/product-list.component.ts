@@ -19,7 +19,7 @@ products:Productmodel[]=[];
   this._Data.deleteProduct(item);
   }
   onAdd(){
-    //this._route.navigate(['/addProduct']);
+    this._route.navigate(['/addProduct']);
   }
   onClick(item){
     this._Data.addCart(item);

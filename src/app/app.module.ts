@@ -18,6 +18,9 @@ import { AddproductComponent } from './product-list/addproduct/addproduct.compon
 import { routingArr } from './app.routing';
 import { CartComponent } from './product-list/cart/cart.component';
 import { MenuComponent } from './menu.component';
+import { EmpListComponent } from './emp-list/emp-list.component';
+import { AddemployeeComponent } from './emp-list/addemployee/addemployee.component';
+import { EmpSidebarComponent } from './emp-list/emp-sidebar/emp-sidebar.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +38,10 @@ import { MenuComponent } from './menu.component';
     ProductListComponent,
     AddproductComponent,
     CartComponent,
-    MenuComponent
+    MenuComponent,
+    EmpListComponent,
+    AddemployeeComponent,
+    EmpSidebarComponent
   ],
   imports: [
     BrowserModule,

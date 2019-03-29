@@ -1,0 +1,9 @@
+<ul *ngIf="arr_emp.length>0;else elseBlock"  class="list-group">
+  <li *ngFor="let item of arr_emp" class="list-group-item">{{item.emp_name}}</li>
+</ul>
+
+<ng-template #elseBlock >
+<div>
+  <h1>No Employee to show</h1>
+</div>
+</ng-template>

@@ -18,6 +18,6 @@ export class AddproductComponent implements OnInit {
     this._Data.addProduct(new Productmodel(106,'xyz',13234,'',4));
   }
   onBackClick(){
-   // this._route.navigate([''])
+    this._route.navigate([''])
   }
 }
