@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-
+import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { DemoComponent } from './demo/demo.component';
 import { CalcComponent } from './calc/calc.component';
@@ -21,6 +21,9 @@ import { MenuComponent } from './menu.component';
 import { EmpListComponent } from './emp-list/emp-list.component';
 import { AddemployeeComponent } from './emp-list/addemployee/addemployee.component';
 import { EmpSidebarComponent } from './emp-list/emp-sidebar/emp-sidebar.component';
+import { StudentListComponent } from './student-list/student-list.component';
+import { AddStudentComponent } from './student-list/add-student/add-student.component';
+import { EditStudentComponent } from './student-list/edit-student/edit-student.component';
 
 @NgModule({
   declarations: [
@@ -41,11 +44,15 @@ import { EmpSidebarComponent } from './emp-list/emp-sidebar/emp-sidebar.componen
     MenuComponent,
     EmpListComponent,
     AddemployeeComponent,
-    EmpSidebarComponent
+    EmpSidebarComponent,
+    StudentListComponent,
+    AddStudentComponent,
+    EditStudentComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
+    HttpClientModule,
     routingArr
   ],
   providers: [],

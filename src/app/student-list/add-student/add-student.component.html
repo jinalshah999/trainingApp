@@ -1,0 +1,12 @@
+<div class="container">
+
+  <div class="row">
+
+      <input type="number" class="form-control" #roll_no placeholder="enter roll number" >
+      <input type="text" class="form-control" #name placeholder="enter student name" >
+      <input type="number" class="form-control" #fees placeholder="enter student fees" >
+      <input type="number" class="form-control" #mobile_no placeholder="enter mobile number" >
+      <button (click)="onStudentSave(roll_no.value,name.value,fees.value,mobile_no.value)" >Save</button>
+
+  </div>
+</div>

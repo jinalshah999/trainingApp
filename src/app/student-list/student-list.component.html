@@ -1,0 +1,31 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-9">
+        <table class="table">
+            <tr *ngFor="let item of studentArray" >
+              <td>
+                {{item.roll_no}}
+              </td>
+              <td>
+                  {{item.name | titlecase }}
+              </td>
+              <td>
+                  {{item.fees | currency:'INR' }}
+              </td>
+              <td>
+                  {{item.mobile_no}}
+              </td>
+              <td>
+                <button (click)="onDeleteStudent(item)"  >Delete</button>
+              |
+              <button (click)="onUpdateStudent(item)" >Update</button>
+              </td>
+            </tr>
+          </table>
+
+
+    </div>
+
+
+  </div>
+</div>
