@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { StudentServiceService } from '../student-service.service';
 import { Student } from '../student';
+import { NgForm } from '@angular/forms';
+
 
 @Component({
   selector: 'app-add-student',
@@ -13,20 +15,23 @@ export class AddStudentComponent implements OnInit {
 
   ngOnInit() {
   }
-  onStudentSave(roll_no,name,fees,mobile_no)
+  onStudentSave(f:NgForm)
   {
-    let student=new Student(roll_no,name,fees,mobile_no);
-    this._studentData.addStudent(student).subscribe(
-      (data:any)=>{
-        if(data.affectedRows==1){
-          console.log(data.insertId);
-          alert('Successfully added one record');
-        }
-        else{
-          alert('something went wrong');
-        }
-      }
-    );
+    console.log(f);
+    console.log(f.form.value.roll_no);
+    let student=f.form.value;
+     // let student=new Student(roll_no,name,fees,mobile_no);
+    // this._studentData.addStudent(student).subscribe(
+    //   (data:any)=>{
+    //     if(data.affectedRows==1){
+    //       console.log(data.insertId);
+    //       alert('Successfully added one record');
+    //     }
+    //     else{
+    //       alert('something went wrong');
+    //     }
+    //   }
+    // );
   }
 
 }

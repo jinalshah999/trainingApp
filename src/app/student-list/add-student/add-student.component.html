@@ -1,12 +1,33 @@
 <div class="container">
 
   <div class="row">
+    <form #f="ngForm" (ngSubmit)="onStudentSave(f)"  >
+    <input type="number" class="form-control" name="roll_no" id="roll_no"
+      ngModel required #roll_no="ngModel" placeholder="enter roll number">
+      <div [hidden]="roll_no.pristine || roll_no.valid" class="alert alert-danger" >
+        Roll Number is required.
+      </div>
+    <input type="text" class="form-control" name="name" id="name"
+    ngModel required email #name="ngModel" placeholder="enter student name">
+    <div *ngIf="name.errors?.required && name.touched"  class="alert alert-danger" >
+        email is required
+    </div>
+      <div *ngIf="name.errors?.email && name.touched"  class="alert alert-danger" >
+          email is invalid
+        </div>
+    <input type="number"  class="form-control" name="fees" id="fees"
+    ngModel #fees="ngModel" appFees placeholder="enter student fees" >
 
-      <input type="number" class="form-control" #roll_no placeholder="enter roll number" >
-      <input type="text" class="form-control" #name placeholder="enter student name" >
-      <input type="number" class="form-control" #fees placeholder="enter student fees" >
-      <input type="number" class="form-control" #mobile_no placeholder="enter mobile number" >
-      <button (click)="onStudentSave(roll_no.value,name.value,fees.value,mobile_no.value)" >Save</button>
-
+    <div *ngIf="fees.errors?.feeslessthanzero && fees.touched"  class="alert alert-danger" >
+        Fees should be greater than 0
+      </div>
+    <input type="text" class="form-control" name="mobile_no" id="mobile_no"
+    ngModel pattern="[7-9][0-9]{9}" #mobile_no="ngModel" placeholder="enter mobile number">
+    <div  [hidden]="mobile_no.pristine || mobile_no.valid" class="alert alert-danger" >
+      mobile should start with 7,8,9 and not more then 10 digits
+    </div>
+    <!-- [disabled]="f.form.invalid" -->
+    <button  type="submit" >Save</button>
+  </form>
   </div>
 </div>

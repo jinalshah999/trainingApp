@@ -24,6 +24,8 @@ import { EmpSidebarComponent } from './emp-list/emp-sidebar/emp-sidebar.componen
 import { StudentListComponent } from './student-list/student-list.component';
 import { AddStudentComponent } from './student-list/add-student/add-student.component';
 import { EditStudentComponent } from './student-list/edit-student/edit-student.component';
+import { FeesvalidatorDirective } from './student-list/feesvalidator.directive';
+import { FeesDirective } from './student-list/fees.directive';
 
 @NgModule({
   declarations: [
@@ -47,7 +49,9 @@ import { EditStudentComponent } from './student-list/edit-student/edit-student.c
     EmpSidebarComponent,
     StudentListComponent,
     AddStudentComponent,
-    EditStudentComponent
+    EditStudentComponent,
+    FeesvalidatorDirective,
+    FeesDirective
   ],
   imports: [
     BrowserModule,

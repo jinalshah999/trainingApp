@@ -1,7 +1,9 @@
 import { Injectable } from '@angular/core';
 import { endPoints } from '../../environments/environment';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 import { Student } from './student';
+import { throwError } from 'rxjs';
+import { catchError, retry } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +13,11 @@ url=endPoints.url+"student/";
 commonHeader=new HttpHeaders().set('Content-Type','application/json');
   constructor(private _http:HttpClient) {   }
   getAllStudents(){
-    return this._http.get<Student[]>(this.url);
+    return this._http.get<Student[]>(this.url).pipe(
+      retry(3),
+      catchError(this.handleError)
+
+    );
   }
   getStudentByRollNumber(roll_no:number){
     return this._http.get<Student[]>(this.url+roll_no);
@@ -26,6 +32,15 @@ commonHeader=new HttpHeaders().set('Content-Type','application/json');
   }
   deleteStudent(roll_no:number){
     return this._http.delete(this.url+roll_no,{headers:this.commonHeader});
+  }
+  private handleError(ex:HttpErrorResponse){
+    if(ex.error instanceof ErrorEvent){
+      console.log('client side error',ex.message);
+    }
+    else{
+      console.log('server side error',ex.message);
+    }
+   return  throwError('something went wrong');
   }
 
 }
