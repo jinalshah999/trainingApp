@@ -1,0 +1,27 @@
+<div class="container">
+    <div class="row">
+      <div class="col-md-9">
+          <table class="table">
+              <tr *ngFor="let item of user_arr" >
+                <td>
+                  {{item.user_email}}
+                </td>
+                <td>
+                    {{item.user_name | titlecase }}
+                </td>
+                <td>
+                   <img src="http://localhost:3000/images/uploads/{{item.user_photo}}" height="100px" width="100px" >
+                </td>
+                <td>
+                    {{item.user_mobileno}}
+                </td>
+
+              </tr>
+            </table>
+
+
+      </div>
+
+
+    </div>
+  </div>

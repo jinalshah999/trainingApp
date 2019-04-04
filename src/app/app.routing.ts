@@ -10,6 +10,9 @@ import { AddemployeeComponent } from './emp-list/addemployee/addemployee.compone
 import { StudentListComponent } from './student-list/student-list.component';
 import { AddStudentComponent } from './student-list/add-student/add-student.component';
 import { EditStudentComponent } from './student-list/edit-student/edit-student.component';
+import { AdduserComponent } from './user-list/adduser/adduser.component';
+import { UserListComponent } from './user-list/user-list.component';
+import { AddStudentReactiveComponent } from './student-list/add-student-reactive/add-student-reactive.component';
 
 const arr:Routes=[
 
@@ -23,7 +26,10 @@ const arr:Routes=[
   {path:'addEmp',component:AddemployeeComponent},
   {path:'student',component:StudentListComponent},
   {path:'addStudent',component:AddStudentComponent},
-  {path:'editStudent/:roll_no',component:EditStudentComponent}
+  {path:'editStudent/:roll_no',component:EditStudentComponent},
+  {path:'addUser',component:AdduserComponent},
+  {path:'user',component:UserListComponent},
+  {path:'addStudentReactive',component:AddStudentReactiveComponent}
 ];
 
 export const routingArr=RouterModule.forRoot(arr);

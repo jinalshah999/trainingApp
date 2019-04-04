@@ -1,0 +1,23 @@
+<div class=container>
+  <div class=row>
+    <form [formGroup]="studentForm" (ngSubmit)="onStudentAdd()">
+      <input type="text" formControlName="roll_no" class="form-control">
+      <div class="alert alert-danger" *ngIf="studentForm.get('roll_no').hasError('required')">
+        Roll Number is required
+      </div>
+      <input type="text" formControlName="name" class="form-control">
+      <input type="text" formControlName="fees" class="form-control">
+      <div class="alert alert-danger" *ngIf="studentForm.get('fees').hasError('required')">
+        fees is required
+      </div>
+      <div class="alert alert-danger" *ngIf="studentForm.get('fees').hasError('maxLength')">
+        fees should not be greater than 5
+      </div>
+      <input type="text" formControlName="mobile_no" class="form-control">
+      <div class="alert alert-danger" *ngIf="studentForm.get('mobile_no').hasError('required')">
+        Mobile Number is required
+      </div>
+      <button type="submit" class="btn btn-primary">Add Student</button>
+    </form>
+  </div>
+</div>

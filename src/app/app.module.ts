@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { DemoComponent } from './demo/demo.component';
@@ -26,6 +27,9 @@ import { AddStudentComponent } from './student-list/add-student/add-student.comp
 import { EditStudentComponent } from './student-list/edit-student/edit-student.component';
 import { FeesvalidatorDirective } from './student-list/feesvalidator.directive';
 import { FeesDirective } from './student-list/fees.directive';
+import { UserListComponent } from './user-list/user-list.component';
+import { AdduserComponent } from './user-list/adduser/adduser.component';
+import { AddStudentReactiveComponent } from './student-list/add-student-reactive/add-student-reactive.component';
 
 @NgModule({
   declarations: [
@@ -51,11 +55,15 @@ import { FeesDirective } from './student-list/fees.directive';
     AddStudentComponent,
     EditStudentComponent,
     FeesvalidatorDirective,
-    FeesDirective
+    FeesDirective,
+    UserListComponent,
+    AdduserComponent,
+    AddStudentReactiveComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpClientModule,
     routingArr
   ],

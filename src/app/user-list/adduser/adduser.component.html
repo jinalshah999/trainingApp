@@ -1,0 +1,75 @@
+<div class="container">
+
+  <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+
+
+    <div class="form-group">
+      <label>email</label>
+      <input type="text" class="form-control" formControlName="user_email" placeholder="Enter Email">
+    </div>
+
+    <div class="alert  alert-danger" *ngIf="!userForm.get('user_email').valid && userForm.get('user_email').touched">
+      <span *ngIf="userForm.get('user_email').hasError('required')">
+        email is required
+      </span>
+      <span *ngIf="userForm.get('user_email').hasError('email')">
+        Email is incorrect
+      </span>
+
+    </div>
+    <div class="form-group">
+      <label>Username</label>
+      <input type="text" class="form-control" formControlName="user_name" placeholder="Enter Username">
+    </div>
+    <div class="alert  alert-danger" *ngIf="!userForm.get('user_name').valid && userForm.get('user_name').touched">
+      <span *ngIf="userForm.get('user_name').hasError('required')">
+        username is required
+      </span>
+    </div>
+    <div class="form-group">
+        <label>password</label>
+        <input type="password" class="form-control" formControlName="password" placeholder="Enter Password">
+      </div>
+      <div class="alert  alert-danger" *ngIf="!userForm.get('password').valid && userForm.get('password').touched">
+        <span *ngIf="userForm.get('password').hasError('required')">
+          password is required
+        </span>
+      </div>
+    <div class="form-group">
+      <label>Phone Number</label>
+      <input type="text" class="form-control" formControlName="user_mobileno" placeholder="Enter Phone">
+    </div>
+    <!-- loginForm.get('mobile_no').hasError('required') -->
+    <div class="alert  alert-danger"
+      *ngIf="!userForm.get('user_mobileno').valid && userForm.get('user.mobileno').touched">
+      <span *ngIf="userForm.get('user_mobileno').hasError('required')">
+        Phone Number is required
+      </span>
+      <span *ngIf="userForm.get('user_mobileno').hasError('maxlength')">
+        Phone Number should not greater than 10 digit
+      </span>
+    </div>
+    <div class="form-group">
+      <button class="form-control btn btn-info" type="button" (click)="onAddHobby()">Add Hobby</button>
+      <div style="height: 10px;"></div>
+      <div class="form-group" formArrayName="user_hobby">
+        <!-- signupform.get('hobby').controls -->
+        <!-- signupform.get('hobby').value -->
+        <div *ngFor="let item of userForm.get('user_hobby').controls; let i=index">
+          <input class="form-control" type="text" [formControlName]="i">
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <h4>select photo</h4>
+      <input class="form-control" type="file" formControlName="user_photo" (change)="onFileSelected($event)">
+      <div class="progress">
+        <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"
+          [ngStyle]="{'width': prg + '%'}">
+          {{prg +'%'}}
+        </div>
+      </div>
+    </div>
+    <button class="form-control btn btn-info" type="submit">Login</button>
+  </form>
+</div>
