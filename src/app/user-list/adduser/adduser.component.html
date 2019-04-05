@@ -41,7 +41,7 @@
     </div>
     <!-- loginForm.get('mobile_no').hasError('required') -->
     <div class="alert  alert-danger"
-      *ngIf="!userForm.get('user_mobileno').valid && userForm.get('user.mobileno').touched">
+      *ngIf="!userForm.get('user_mobileno').valid && userForm.get('user_mobileno').touched">
       <span *ngIf="userForm.get('user_mobileno').hasError('required')">
         Phone Number is required
       </span>
@@ -52,13 +52,15 @@
     <div class="form-group">
       <button class="form-control btn btn-info" type="button" (click)="onAddHobby()">Add Hobby</button>
       <div style="height: 10px;"></div>
-      <div class="form-group" formArrayName="user_hobby">
+
         <!-- signupform.get('hobby').controls -->
         <!-- signupform.get('hobby').value -->
-        <div *ngFor="let item of userForm.get('user_hobby').controls; let i=index">
+        <div class="form-group" formArrayName="user_hobby"
+         *ngFor="let item of userForm.get('user_hobby').controls;let i=index">
           <input class="form-control" type="text" [formControlName]="i">
+          <button (click)="onRemoveHobby(i)" class="btn btn-danger btn-sm pull-right">Remove</button>
         </div>
-      </div>
+
     </div>
     <div class="form-group">
       <h4>select photo</h4>

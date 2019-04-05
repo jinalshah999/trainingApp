@@ -6,6 +6,9 @@
         Roll Number is required
       </div>
       <input type="text" formControlName="name" class="form-control">
+      <div class="alert alert-danger" *ngIf="studentForm.get('name').hasError('invalidUsername') && studentForm.get('name').touched" >
+        User name is invalid
+      </div>
       <input type="text" formControlName="fees" class="form-control">
       <div class="alert alert-danger" *ngIf="studentForm.get('fees').hasError('required')">
         fees is required
@@ -17,7 +20,7 @@
       <div class="alert alert-danger" *ngIf="studentForm.get('mobile_no').hasError('required')">
         Mobile Number is required
       </div>
-      <button type="submit" class="btn btn-primary">Add Student</button>
+      <button [disabled]="studentForm.invalid" type="submit" class="btn btn-primary">Add Student</button>
     </form>
   </div>
 </div>

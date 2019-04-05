@@ -13,6 +13,8 @@ import { EditStudentComponent } from './student-list/edit-student/edit-student.c
 import { AdduserComponent } from './user-list/adduser/adduser.component';
 import { UserListComponent } from './user-list/user-list.component';
 import { AddStudentReactiveComponent } from './student-list/add-student-reactive/add-student-reactive.component';
+import { EditStudentReactiveComponent } from './student-list/edit-student-reactive/edit-student-reactive.component';
+import { UpdateStudentReactiveComponent } from './student-list/update-student-reactive/update-student-reactive.component';
 
 const arr:Routes=[
 
@@ -29,7 +31,8 @@ const arr:Routes=[
   {path:'editStudent/:roll_no',component:EditStudentComponent},
   {path:'addUser',component:AdduserComponent},
   {path:'user',component:UserListComponent},
-  {path:'addStudentReactive',component:AddStudentReactiveComponent}
+  {path:'addStudentReactive',component:AddStudentReactiveComponent},
+  {path:'editStudentReactive/:roll_no',component:UpdateStudentReactiveComponent}
 ];
 
 export const routingArr=RouterModule.forRoot(arr);

@@ -30,6 +30,8 @@ import { FeesDirective } from './student-list/fees.directive';
 import { UserListComponent } from './user-list/user-list.component';
 import { AdduserComponent } from './user-list/adduser/adduser.component';
 import { AddStudentReactiveComponent } from './student-list/add-student-reactive/add-student-reactive.component';
+import { EditStudentReactiveComponent } from './student-list/edit-student-reactive/edit-student-reactive.component';
+import { UpdateStudentReactiveComponent } from './student-list/update-student-reactive/update-student-reactive.component';
 
 @NgModule({
   declarations: [
@@ -58,7 +60,9 @@ import { AddStudentReactiveComponent } from './student-list/add-student-reactive
     FeesDirective,
     UserListComponent,
     AdduserComponent,
-    AddStudentReactiveComponent
+    AddStudentReactiveComponent,
+    EditStudentReactiveComponent,
+    UpdateStudentReactiveComponent
   ],
   imports: [
     BrowserModule,

@@ -27,6 +27,7 @@ studentArray:Student[]=[];
     );
   }
   onDeleteStudent(item:Student){
+    if(confirm('Are you sure you want to delete?')){
     this._studentData.deleteStudent(item.roll_no).subscribe(
       (data:any)=>{
         if(data.affectedRows>0){
@@ -38,8 +39,9 @@ studentArray:Student[]=[];
       }
     );
   }
+  }
   onUpdateStudent(item:Student){
-    this._router.navigate(['/editStudent',item.roll_no]);
+    this._router.navigate(['/editStudentReactive',item.roll_no]);
   }
 
 }

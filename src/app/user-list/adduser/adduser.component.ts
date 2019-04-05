@@ -55,8 +55,14 @@ export class AdduserComponent implements OnInit {
     });
   }
   onAddHobby() {
-    const control = new FormControl(null, [Validators.required]);
-    (<FormArray>this.userForm.get("user_hobby")).push(control);
+    if(this.userForm.get("user_hobby").value.length!=3){
+      const control = new FormControl(null, [Validators.required]);
+   (<FormArray>this.userForm.get('user_hobby')).push(control);
+    }
+
+  }
+  onRemoveHobby(i){
+    (<FormArray>this.userForm.get("user_hobby")).removeAt(i);
   }
   onFileSelected(value) {
     this.selectedFile = <File>value.target.files[0];
