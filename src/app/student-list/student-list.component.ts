@@ -43,5 +43,8 @@ studentArray:Student[]=[];
   onUpdateStudent(item:Student){
     this._router.navigate(['/editStudentReactive',item.roll_no]);
   }
+  onViewStudent(item){
+    this._router.navigate(['/viewStudentReactive',item.roll_no]);
+  }
 
 }

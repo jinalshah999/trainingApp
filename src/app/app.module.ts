@@ -32,6 +32,9 @@ import { AdduserComponent } from './user-list/adduser/adduser.component';
 import { AddStudentReactiveComponent } from './student-list/add-student-reactive/add-student-reactive.component';
 import { EditStudentReactiveComponent } from './student-list/edit-student-reactive/edit-student-reactive.component';
 import { UpdateStudentReactiveComponent } from './student-list/update-student-reactive/update-student-reactive.component';
+import { ViewStudentReactiveComponent } from './student-list/view-student-reactive/view-student-reactive.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { LoginComponent } from './user-list/login/login.component';
 
 @NgModule({
   declarations: [
@@ -62,7 +65,10 @@ import { UpdateStudentReactiveComponent } from './student-list/update-student-re
     AdduserComponent,
     AddStudentReactiveComponent,
     EditStudentReactiveComponent,
-    UpdateStudentReactiveComponent
+    UpdateStudentReactiveComponent,
+    ViewStudentReactiveComponent,
+    PageNotFoundComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

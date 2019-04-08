@@ -15,14 +15,22 @@ import { UserListComponent } from './user-list/user-list.component';
 import { AddStudentReactiveComponent } from './student-list/add-student-reactive/add-student-reactive.component';
 import { EditStudentReactiveComponent } from './student-list/edit-student-reactive/edit-student-reactive.component';
 import { UpdateStudentReactiveComponent } from './student-list/update-student-reactive/update-student-reactive.component';
+import { StudentGuardService } from './student-guard.service';
+import { ViewStudentReactiveComponent } from './student-list/view-student-reactive/view-student-reactive.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { StudentGuard2Service } from './student-guard2.service';
+import { LoginComponent } from './user-list/login/login.component';
 
 const arr:Routes=[
 
+
+  //{path:'',redirectTo:'/home',pathMatch:'full'},
   {path:'',component:ProductListComponent},
+  {path:'login',component:LoginComponent},
   {path:'addProduct',component:AddproductComponent},
-  {path:'todo',component:TodoComponent},
-  {path:'calc',component:CalcComponent},
-  {path:'calc1',component:Calc1Component},
+  {path:'todo',component:TodoComponent,canActivate:[StudentGuard2Service]},
+  {path:'calc',component:CalcComponent,canActivate:[StudentGuard2Service]},
+  {path:'calc1',component:Calc1Component,canActivate:[StudentGuard2Service]},
   {path:'demo',component:DemoComponent},
   {path:'emp',component:EmpListComponent},
   {path:'addEmp',component:AddemployeeComponent},
@@ -32,7 +40,10 @@ const arr:Routes=[
   {path:'addUser',component:AdduserComponent},
   {path:'user',component:UserListComponent},
   {path:'addStudentReactive',component:AddStudentReactiveComponent},
-  {path:'editStudentReactive/:roll_no',component:UpdateStudentReactiveComponent}
+ {path:'viewStudentReactive/:roll_no',component:ViewStudentReactiveComponent},
+  {path:'editStudentReactive/:roll_no',component:EditStudentReactiveComponent,
+    canDeactivate:[StudentGuardService]},
+    {path:'**',component:PageNotFoundComponent}
 ];
 
 export const routingArr=RouterModule.forRoot(arr);
