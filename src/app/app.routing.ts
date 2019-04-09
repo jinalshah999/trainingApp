@@ -15,7 +15,6 @@ import { UserListComponent } from './user-list/user-list.component';
 import { AddStudentReactiveComponent } from './student-list/add-student-reactive/add-student-reactive.component';
 import { EditStudentReactiveComponent } from './student-list/edit-student-reactive/edit-student-reactive.component';
 import { UpdateStudentReactiveComponent } from './student-list/update-student-reactive/update-student-reactive.component';
-import { StudentGuardService } from './student-guard.service';
 import { ViewStudentReactiveComponent } from './student-list/view-student-reactive/view-student-reactive.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { StudentGuard2Service } from './student-guard2.service';
@@ -34,16 +33,24 @@ const arr:Routes=[
   {path:'demo',component:DemoComponent},
   {path:'emp',component:EmpListComponent},
   {path:'addEmp',component:AddemployeeComponent},
-  {path:'student',component:StudentListComponent},
-  {path:'addStudent',component:AddStudentComponent},
-  {path:'editStudent/:roll_no',component:EditStudentComponent},
+  {path:'student', canActivate:[StudentGuard2Service],
+  children:[
+    {path:'',component:StudentListComponent},
+    {path:'add',component:AddStudentComponent},
+    {path:'add1',component:AddStudentReactiveComponent},
+    {path:'edit/:roll_no',component:EditStudentComponent},
+    {path:'edit1/:roll_no',component:EditStudentReactiveComponent},
+    {path:'view/:roll_no',component:ViewStudentReactiveComponent}
+  ]},
+  // {path:'addStudent',component:AddStudentComponent},
+  // {path:'editStudent/:roll_no',component:EditStudentComponent},
+  // {path:'editStudentReactive/:roll_no',component:EditStudentReactiveComponent,
+  //   canDeactivate:[StudentGuardService]},
+  // {path:'addStudentReactive',component:AddStudentReactiveComponent},
+  // {path:'viewStudentReactive/:roll_no',component:ViewStudentReactiveComponent},
   {path:'addUser',component:AdduserComponent},
   {path:'user',component:UserListComponent},
-  {path:'addStudentReactive',component:AddStudentReactiveComponent},
- {path:'viewStudentReactive/:roll_no',component:ViewStudentReactiveComponent},
-  {path:'editStudentReactive/:roll_no',component:EditStudentReactiveComponent,
-    canDeactivate:[StudentGuardService]},
-    {path:'**',component:PageNotFoundComponent}
+  {path:'**',component:PageNotFoundComponent}
 ];
 
 export const routingArr=RouterModule.forRoot(arr);

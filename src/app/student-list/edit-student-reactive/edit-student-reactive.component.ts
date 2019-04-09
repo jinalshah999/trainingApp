@@ -32,21 +32,9 @@ flag:boolean=true;
     this._studentData.getStudentByRollNumber(this.id).subscribe(
       (data:Student[])=>this.getAllDetails(data[0])
     );
-    this.studentForm.valueChanges.subscribe(
-      (data:any)=>this.shreeja(data)
-    );
+
   }
-  isDirty():boolean{
-    if(JSON.stringify(this.currentData)!==JSON.stringify(this.originalData)){
-      return true;
-    }
-    return false;
-  }
-  shreeja(data){
-    this.currentData=data;
-    console.log('change thayu');
-    console.log(data);
-  }
+
   getAllDetails(data:Student){
     this.originalData=data;
     this.currentData=data;
@@ -60,9 +48,6 @@ flag:boolean=true;
 
   }
   onStudentEdit(){
-    this.flag=false;
-    this.originalData=null;
-    this.currentData=null;
     this._studentData.updateStudent(this.studentForm.value).subscribe(
       (data:any)=>{
         this._router.navigate(['/student']);
