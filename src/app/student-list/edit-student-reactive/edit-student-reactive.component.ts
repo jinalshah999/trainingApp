@@ -24,8 +24,7 @@ flag:boolean=true;
       roll_no:new FormControl(0),
       name:new FormControl(null),
       fees:new FormControl(0),
-      mobile_no:new FormControl(0),
-      gender:new FormControl('1')
+      mobile_no:new FormControl(0)
 
     });
     this.id=this._activatedRoute.snapshot.params['roll_no'];
@@ -33,8 +32,18 @@ flag:boolean=true;
       (data:Student[])=>this.getAllDetails(data[0])
     );
 
+      this.studentForm.valueChanges.subscribe(
+        (data:any)=>{
+          this.currentData=data;
+        }
+      );
   }
-
+isDirty():boolean{
+  if(JSON.stringify(this.currentData)!==JSON.stringify(this.originalData)){
+    return true;
+  }
+  return false;
+}
   getAllDetails(data:Student){
     this.originalData=data;
     this.currentData=data;
@@ -42,14 +51,15 @@ flag:boolean=true;
       roll_no:data.roll_no,
       name:data.name,
       fees:data.fees,
-      mobile_no:data.mobile_no,
-      gender:"3"
+      mobile_no:data.mobile_no
     });
 
   }
   onStudentEdit(){
     this._studentData.updateStudent(this.studentForm.value).subscribe(
       (data:any)=>{
+        this.currentData=null;
+        this.originalData=null;
         this._router.navigate(['/student']);
       }
     );

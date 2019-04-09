@@ -35,6 +35,8 @@ import { UpdateStudentReactiveComponent } from './student-list/update-student-re
 import { ViewStudentReactiveComponent } from './student-list/view-student-reactive/view-student-reactive.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { LoginComponent } from './user-list/login/login.component';
+import { UrlSerializer } from '@angular/router';
+import { lowercaseconvert } from './lowercaseconvert';
 
 @NgModule({
   declarations: [
@@ -77,7 +79,12 @@ import { LoginComponent } from './user-list/login/login.component';
     HttpClientModule,
     routingArr
   ],
-  providers: [],
+  providers: [
+    {
+      provide:UrlSerializer,
+      useClass:lowercaseconvert
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

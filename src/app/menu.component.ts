@@ -8,17 +8,15 @@ import { FLAGS } from '@angular/core/src/render3/interfaces/view';
   styleUrls: ['./menu.component.css']
 })
 export class MenuComponent implements OnInit {
-flag:boolean=true;
+
 get login(){
   if(this._userAuth.currentUser!=null){
-    console.log('login'+this.flag);
-    this.flag=false;
+       return false;
   }
   else{
-    console.log('logout'+this.flag);
-    this.flag=true;
+       return true;
   }
-  return this.flag;
+
 }
   constructor(private _userAuth:UserAuthService) { }
 

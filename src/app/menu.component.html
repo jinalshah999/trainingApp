@@ -11,14 +11,14 @@
   <li class="nav-item">
     <a class="nav-link" routerLink="/calc1" routerLinkActive="active">Calc1</a>
   </li>
-  <li class="nav-item">
+  <li class="nav-item"  >
     <a class="nav-link" routerLink="/todo">Todo</a>
   </li>
   <li class="nav-item">
       <a class="nav-link" routerLink="/emp">Emp List</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" routerLink="/addEmp">Emp Add</a>
+        <a class="nav-link" routerLink="/emp/add">Emp Add</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" routerLink="/student">Student</a>
@@ -27,7 +27,7 @@
         <a class="nav-link" routerLink="/student/add">Add Student</a>
       </li>
       <li class="nav-item">
-          <a class="nav-link" routerLink="/addUser">Add User</a>
+          <a class="nav-link" routerLink="/user/add">Add User</a>
         </li>
         <li class="nav-item">
             <a class="nav-link" routerLink="/user">User List</a>
@@ -35,7 +35,7 @@
           <li class="nav-item">
             <a class="nav-link" routerLink="/student/add1">Add Student Reactive</a>
           </li>
-          <li class="nav-item" *ngIf="login">
+          <li class="nav-item" *ngIf="login" >
             <a class="nav-link" routerLink="/login">Login</a>
           </li>
           <li class="nav-item" *ngIf="!login">

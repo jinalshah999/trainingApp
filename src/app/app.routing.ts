@@ -17,39 +17,40 @@ import { EditStudentReactiveComponent } from './student-list/edit-student-reacti
 import { UpdateStudentReactiveComponent } from './student-list/update-student-reactive/update-student-reactive.component';
 import { ViewStudentReactiveComponent } from './student-list/view-student-reactive/view-student-reactive.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
-import { StudentGuard2Service } from './student-guard2.service';
+
 import { LoginComponent } from './user-list/login/login.component';
+import { UserGuardService } from './user-guard.service';
+import { StudentguardService } from './student-list/studentguard.service';
 
 const arr:Routes=[
-
-
   //{path:'',redirectTo:'/home',pathMatch:'full'},
   {path:'',component:ProductListComponent},
   {path:'login',component:LoginComponent},
   {path:'addProduct',component:AddproductComponent},
-  {path:'todo',component:TodoComponent,canActivate:[StudentGuard2Service]},
-  {path:'calc',component:CalcComponent,canActivate:[StudentGuard2Service]},
-  {path:'calc1',component:Calc1Component,canActivate:[StudentGuard2Service]},
+  {path:'todo', canActivate:[UserGuardService], component:TodoComponent},
+  {path:'calc',component:CalcComponent},
+  {path:'calc1',component:Calc1Component},
   {path:'demo',component:DemoComponent},
-  {path:'emp',component:EmpListComponent},
-  {path:'addEmp',component:AddemployeeComponent},
-  {path:'student', canActivate:[StudentGuard2Service],
+  {path:'emp',
+  children:[
+    {path:'',component:EmpListComponent},
+    {path:'add',canActivate:[UserGuardService],component:AddemployeeComponent}
+  ]
+  },
+  {path:'student',canActivate:[UserGuardService],
   children:[
     {path:'',component:StudentListComponent},
     {path:'add',component:AddStudentComponent},
     {path:'add1',component:AddStudentReactiveComponent},
     {path:'edit/:roll_no',component:EditStudentComponent},
-    {path:'edit1/:roll_no',component:EditStudentReactiveComponent},
+    {path:'edit1/:roll_no',component:EditStudentReactiveComponent, canDeactivate:[StudentguardService] },
     {path:'view/:roll_no',component:ViewStudentReactiveComponent}
   ]},
-  // {path:'addStudent',component:AddStudentComponent},
-  // {path:'editStudent/:roll_no',component:EditStudentComponent},
-  // {path:'editStudentReactive/:roll_no',component:EditStudentReactiveComponent,
-  //   canDeactivate:[StudentGuardService]},
-  // {path:'addStudentReactive',component:AddStudentReactiveComponent},
-  // {path:'viewStudentReactive/:roll_no',component:ViewStudentReactiveComponent},
-  {path:'addUser',component:AdduserComponent},
-  {path:'user',component:UserListComponent},
+  {path:'user',
+  children:[
+    {path:'',component:UserListComponent},
+    {path:'add',component:AdduserComponent}
+  ]},
   {path:'**',component:PageNotFoundComponent}
 ];
 

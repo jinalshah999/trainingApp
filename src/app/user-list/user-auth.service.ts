@@ -11,7 +11,7 @@ import { catchError } from 'rxjs/operators';
 })
 export class UserAuthService {
 currentUser:any=null;
-redirectURL:string="";
+redirectURL:string='';
 url = endPoints.url + "login/";
 commonHeader = new HttpHeaders().set("Content-Type", "application/json");
   constructor(private _router:Router,private _http:HttpClient) { }

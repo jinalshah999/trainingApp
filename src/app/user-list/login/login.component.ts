@@ -19,17 +19,18 @@ export class LoginComponent implements OnInit {
       (data:any[])=>{
         if(data.length==1)
         {
-        console.log(data);
-        this._userData.currentUser={
-          user_name:data[0].user_name,
-          user_email:data[0].user_email
-        }
-        if(this._userData.redirectURL){
-          this._router.navigateByUrl(this._userData.redirectURL);
-        }
-        else{
+          console.log(data);
+          this._userData.currentUser={
+              name:data[0].user_name,
+              email:data[0].user_email
+          };
+          if(this._userData.redirectURL!=''){
+            this._router.navigateByUrl(this._userData.redirectURL);
+          }
+          else
+          {
           this._router.navigate(['']);
-        }
+          }
       }
       else
       {
